@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-// https://vitejs.dev/config/
+import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
-  plugins: [vue(),Components({dts: true}),AutoImport({dts: "./src/auto-imports.d.ts",imports: ['vue'] }),],
+  plugins: [
+    vue(),
+    AutoImport({
+      dts: "./src/auto-imports.d.ts",
+      imports: ['vue'],
+    }),
+    WindiCSS(),
+  ],
 })
