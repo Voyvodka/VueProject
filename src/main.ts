@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
-import './style.css'
 import { createPinia } from 'pinia'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import './style.css'
 import App from './App.vue'
 import 'virtual:windi.css'
-createApp(App).use(createPinia()).mount('#app')
+import i18n from './modules/i18n'
+createApp(App).use(createPinia()).use(ElementPlus).use(i18n).mount('#app')
