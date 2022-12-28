@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-  <HelloWorld />
+  <Navbar />
 </template>
 <style scoped>
 </style>
