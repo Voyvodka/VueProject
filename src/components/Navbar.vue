@@ -7,8 +7,8 @@ const menuItems = ref([
 <template>
     <nav class="top-0">
         <ul class="flex justify-center ">
-            <li v-for="menu in menuItems" class="text-xl font-bold p-4">
-                <a href="{{ menu.link }}">{{ menu.label }}</a>
+            <li v-for="menu in menuItems" :key="menu.label" class="text-xl font-bold p-4">
+                <a :href="menu.link">{{ menu.label }}</a>
             </li>
         </ul>
     </nav>
