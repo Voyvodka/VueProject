@@ -8,7 +8,7 @@
 <style>
 .app-class {
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
