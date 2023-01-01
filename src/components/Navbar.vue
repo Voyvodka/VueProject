@@ -15,8 +15,6 @@ const menuItems = ref([
             </li>
         </ul>
     </nav>
-    <button @click="isAside = !isAside">Menu Değiş</button>
-    <div>{{ isAside }}</div>
 </template>
 <style scoped>
 </style>

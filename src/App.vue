@@ -3,6 +3,7 @@
 <template>
   <div class="app-class">
     <Navbar />
+    <MainPageContent />
   </div>
 </template>
 <style>
@@ -12,6 +13,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  display: flex;
 }
 body {
   margin: 0;

@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    MainPageContent: typeof import('./src/components/MainPageContent.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
   }
 }
