@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useSettingsStore } from './stores/userSettings'
+const store = useSettingsStore();
 </script>
 <template>
-  <div class="app-class">
+  <div class="app-class" :class="store.isAside ? 'flex ' : ''">
     <Navbar />
     <MainPageContent />
   </div>
@@ -13,7 +15,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  display: flex;
 }
 body {
   margin: 0;
