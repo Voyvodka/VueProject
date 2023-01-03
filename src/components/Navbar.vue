@@ -10,13 +10,16 @@ const menuItems = ref([
 ])
 </script>
 <template>
-    <nav :class="store.isAside ? 'left-0 ' : 'top-0'">
-        <ul :class="store.isAside ? 'inline-block p-30px h-100vh' : 'flex justify-center'" class="bg-blue-200">
+    <nav class="">
+        <ul :class="store.isAside ? 'inline-block p-30px h-100vh w-50' : 'flex justify-center'" class="bg-blue-200">
             <li v-for="menu in menuItems" :key="menu.label" :class="store.isAside ? 'p-1' : 'p-4'"
-                class="text-xl font-bold rounded m-2 items-center">
-                <Icon icon="ic:baseline-greater-than" color="black" width="20" class="m-auto" />
+                class="text-xl font-bold rounded m-2">
+                <Icon icon="ic:baseline-greater-than" :class="store.isAside ? '' : 'hidden'" color="black" width="20"
+                    class="m-auto" />
                 <a :href="menu.link">{{ menu.label }}</a>
             </li>
+            <button class="bg-blue-500 p-3 rounded" @click="store.isAside = !store.isAside">Menu Değiş</button>
+            <p>{{ store.isAside }}</p>
         </ul>
     </nav>
 </template>
