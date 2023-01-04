@@ -4,8 +4,14 @@ const store = useSettingsStore();
 </script>
 <template>
     <div class="p-2 w-full grid-cols-2">
-        <div class="grid-cols-9" style="border: 1px solid blue;"> asdfasadfasdf</div>
-        <div class="grid-cols-3" style="border: 1px solid red"> fasdfas</div>
+        <div class="grid grid-cols-2" style="border: 1px solid blue;">
+            <div class="p-3" style="border: 1px solid red">
+                <div>image</div>
+                <div>cardtitle area</div>
+                <div>card body area</div>
+            </div>
+            <div style="border: 1px solid yellow"> fasdfas</div>
+        </div>
     </div>
 </template>
 <style scoped>
