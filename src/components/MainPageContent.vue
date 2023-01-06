@@ -1,38 +1,80 @@
 <script setup lang="ts">
 import { useSettingsStore } from '../stores/userSettings'
 const store = useSettingsStore();
+const { Popover, Toast, Collapse } = bootstrap
+const collapse = Vue.component('bsCollapse', {
+    template: `
+        <div>
+            <slot name="trigger"></slot>
+            <slot name="target"></slot>
+        </div>
+    `,
+    props: {
+        toggle: {
+            required: false,
+            default: false
+        },
+        id: {
+            required: true
+        }
+    },
+    mounted() {
+        var trigger = this.$slots['trigger'][0].elm
+        var target = this.$slots['target'][0].elm
+        target.classList.add('collapse')
+        target.setAttribute('id', this.id);
+        trigger.setAttribute('data-bs-target', '#' + this.id);
+        trigger.setAttribute('data-bs-toggle', 'collapse');
+        new Collapse(target, { toggle: this.toggle })
+    },
+})
+const popover = Vue.component('bsPopover', {
+    template: `
+        <slot/>
+    `,
+    props: {
+        content: {
+            required: false,
+            default: '',
+        },
+        title: {
+            default: 'My Popover',
+        },
+        trigger: {
+            default: 'click',
+        },
+        delay: {
+            default: 0,
+        },
+        html: {
+            default: false,
+        },
+    },
+    mounted() {
+        // pass bootstrap popover options from props
+        var options = this.$props
+        var ele = this.$slots.default[0].elm
+        new Popover(ele, options)
+    },
+})
+new Vue({
+    el: "#app"
+})
 </script>
 <template>
-    <div class="p-2 w-full grid-cols-2">
-        <div class="grid grid-cols-2 p-3" style="border: 1px solid blue;">
-            <div class="p-3 grid grid-cols-3" style="border: 1px solid red">
-                <div class="p-2">
-                    <div class="bg-red-400 rounded relative ">
-                        <div>
-                            <img class="relative top-0 left-0 right-0 w-full object-cover"
-                                style="max-height: 30% !important;" src="https://via.placeholder.com/750x500" alt="">
-                        </div>
-                        <div>cardtitle area</div>
-                        <div>card body area</div>
-                    </div>
-                </div>
-                <div class="p-2">
-                    <div class="bg-red-400 p-2 rounded relative">
-                        <div>image</div>
-                        <div>cardtitle area</div>
-                        <div>card body area</div>
-                    </div>
-                </div>
-                <div class="p-2">
-                    <div class="bg-red-400 p-2 rounded relative">
-                        <div>image</div>
-                        <div>cardtitle area</div>
-                        <div>card body area</div>
-                    </div>
-                </div>
-            </div>
-            <div style=" border: 1px solid yellow"> fasdfas</div>
-        </div>
+    <b-card title="Card Title" img-src="https://picsum.photos/600/300/?image=25" img-alt="Image" img-top tag="article"
+        style="max-width: 20rem;" class="mb-2">
+        <b-card-text>
+            Some quick example text to build on the card title and make up the bulk of the card's
+            content.
+        </b-card-text>
+        <b-button href="#" variant="primary">Go somewhere</b-button>
+    </b-card>
+    <button class="btn btn-primary" data-bs-target="#collapseTarget" data-bs-toggle="collapse">
+        Bootstrap collapse
+    </button>
+    <div class="collapse py-2" id="collapseTarget">
+        This is the toggle-able content!
     </div>
 </template>
 <style scoped>
