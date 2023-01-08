@@ -10,6 +10,7 @@ const store = useCounterStore();
     <div>{{ store.count }}</div>
     <div>{{ t("language") }}</div>
     <div>{{ t("details.anasayfa") }}</div>
+    <div>{{ t("details.anasayfa") }}</div>
     <div>{{ t("details.insan-kaynaklari") }}</div>
     <select class="text-2xl" name="" id="">
         <option value="123">asdf</option>
